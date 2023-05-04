@@ -14,6 +14,7 @@ function Main() {
   const [showPosting, setShowPosting] = useState(false);
   const [file, setFile] = useState();
   const [fileUrl, setFileUrl] = useState('');
+  const [postData, setPostData] = useState([]);
 
   async function uploadStorage(filename, file) {
     const { data, error } = await supabase.storage
@@ -27,7 +28,6 @@ function Main() {
     }
   }
   async function uploadPost(title, content) {
-    // const {data, error} = await supabase.from('post').select('*')
     const { data, error } = await supabase
       .from('post')
       .insert([{ title: title, content: content }])
@@ -40,11 +40,22 @@ function Main() {
     }
   }
 
-  // async function fetchData() {
-  //   const
-  //   const limit = 5;
-  //   const {data: post, error} = await supabase.from('post').select('*').limit()
-  // }
+  async function fetchPost() {
+    const offset = 0;
+    const limit = 5;
+    const { data: post, error } = await supabase
+      .from('post')
+      .select('*')
+      .limit(limit)
+      .offset(offset);
+
+    if (error) {
+      console.log(error);
+    } else {
+      setPostData(post);
+      console.log(post);
+    }
+  }
 
   return (
     <div className="inner">
@@ -74,6 +85,14 @@ function Main() {
         }}
       >
         Url 확인
+      </button>
+      <button
+        onClick={() => {
+          fetchPost();
+          console.log(fileUrl);
+        }}
+      >
+        fetch 확인
       </button>
       {showPosting ? (
         <Posting
