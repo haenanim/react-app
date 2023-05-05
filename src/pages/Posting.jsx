@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import { uploadPost, uploadStorage } from '../core/supabaseUtils';
 
 import './Posting.css';
 
-export default function Posting({ uploadStorage, uploadPost, setShowPosting }) {
+export default function Posting() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState([]);
@@ -22,10 +23,6 @@ export default function Posting({ uploadStorage, uploadPost, setShowPosting }) {
     data.then((promise) => {
       uploadImage(promise);
     });
-
-    // setShowPosting(false);
-    // uploadImage()
-    // setPostInfo(data);
   }
 
   function uploadImage(promise) {
