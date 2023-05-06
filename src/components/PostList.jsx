@@ -1,33 +1,15 @@
 import { useState, useEffect } from 'react';
-import { fetchPost, fecthPostImageUrl } from '../core/supabaseUtils';
+import { fetchPost } from '../core/supabaseUtils';
 import PostItem from './PostItem';
+import './PostList.css';
 
 export default function PostList() {
-  const [list, setList] = useState([
-    {
-      id: 1,
-      title: 'AAAA',
-      createdAt: 'YYYY-MM-DD',
-    },
-    {
-      id: 2,
-      title: 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
-      createdAt: 'YYYY-MM-DD',
-    },
-    {
-      id: 3,
-      title: 'C',
-      createdAt: 'YYYY-MM-DD',
-    },
-    {
-      id: 4,
-      title: 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD',
-      createdAt: 'YYYY-MM-DD',
-    },
-  ]);
+  const [list, setList] = useState([]);
+  const limit = 10;
+  const offset = 0;
 
   async function fetchData() {
-    const data = await fetchPost(0, 5).then((res) => {
+    const data = await fetchPost(offset, limit).then((res) => {
       console.log(res, 'pros');
       setList(res);
     });
@@ -39,14 +21,12 @@ export default function PostList() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
+    <div className="postList">
       {list &&
         list.map((post, idx) => {
-          return <PostItem post={post} key={`post-list-${post.id}`} />;
+          return (
+            <PostItem id={11111} post={post} key={`post-list-${post.id}`} />
+          );
         })}
     </div>
   );

@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  width: 200px;
+}
+.item .image {
+  width: 100%;
+}
+.item .title {
+}
+
+.item .title,
+.item .content {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
