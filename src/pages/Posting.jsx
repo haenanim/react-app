@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
-import { uploadPost, uploadStorage } from '../core/supabaseUtils';
+import { uploadPost, uploadStorage, updatePost } from '../core/supabaseUtils';
 
 import './Posting.css';
 
@@ -14,7 +14,6 @@ export default function Posting() {
 
   function handleImageChange(e) {
     const fileArray = Array.from(e.target.files);
-    console.log(fileArray);
     setImages(fileArray);
   }
 
@@ -29,7 +28,8 @@ export default function Posting() {
     if (images) {
       images.map((image, index) => {
         const imageName = promise[0].id + '-' + index;
-        uploadStorage(imageName, image);
+        const data = uploadStorage(imageName, image);
+        updatePost(promise[0].id, imageName);
       });
     }
   }
@@ -54,7 +54,7 @@ export default function Posting() {
         <div className="picture_box">
           <div>사진</div>
           <div>
-            <input type="file" multiple onChange={handleImageChange} />
+            <input type="file" onChange={handleImageChange} />
             <div>
               {images.map((image) => (
                 <img
