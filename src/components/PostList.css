@@ -1,11 +1,11 @@
 .postList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 1000px;
 }
 .postList .item {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite;
   margin: 12px;
-  border-radius: 15px;
+  border-radius: 15px; */
 }
