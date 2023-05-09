@@ -2,6 +2,20 @@ import './PostItem.css';
 
 export default function PostItem({ post }) {
   console.log(post);
+
+  function unpackDate(created_At) {
+    const createdAt = new Date(created_At);
+    const year = createdAt.getFullYear();
+    const month = createdAt.getMonth();
+    const date = createdAt.getDate();
+    const hours = createdAt.getHours();
+    const minutes = createdAt.getMinutes();
+    const seconds = createdAt.getSeconds();
+
+    const fromattedDate = `${year}년 ${month}월 ${date}일 ${hours}:${minutes}`;
+    return fromattedDate;
+  }
+
   return (
     <div className="item">
       <div key={`post-list-${post.id}`} style={{ width: '100%' }}>
@@ -9,9 +23,9 @@ export default function PostItem({ post }) {
         {post.img_name ? (
           <img className="image" src={post.imgUrl} />
         ) : (
-          <div></div>
+          <div className="content">{post.content}</div>
         )}
-        <div className="content">{post.created_at}</div>
+        <div className="created-at">{unpackDate(post.created_at)}</div>
       </div>
     </div>
   );
