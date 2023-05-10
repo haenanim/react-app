@@ -1,3 +1,4 @@
+import React from 'react';
 import './PostItem.css';
 
 export default function PostItem({ post }) {
@@ -17,16 +18,14 @@ export default function PostItem({ post }) {
   }
 
   return (
-    <div className="item">
-      <div key={`post-list-${post.id}`} style={{ width: '100%' }}>
-        <div className="title">{post.title}</div>
-        {post.img_name ? (
-          <img className="image" src={post.imgUrl} />
-        ) : (
-          <div className="content">{post.content}</div>
-        )}
-        <div className="created-at">{unpackDate(post.created_at)}</div>
-      </div>
+    <div className="item" key={`post-list-${post.id}`}>
+      <div className="title">{post.title}</div>
+      {post.img_name ? (
+        <img className="image" src={post.imgUrl} />
+      ) : (
+        <div className="content">{post.content}</div>
+      )}
+      <div className="created-at">{unpackDate(post.created_at)}</div>
     </div>
   );
 }
