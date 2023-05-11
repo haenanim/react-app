@@ -17,7 +17,6 @@ export default function PostList() {
 
   useEffect(() => {
     fetchData();
-    console.log('effect');
   }, []);
 
   return (

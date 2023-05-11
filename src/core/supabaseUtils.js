@@ -86,3 +86,17 @@ export function fecthPostImageUrl(postId) {
   const { data } = supabase.storage.from('img').getPublicUrl(`${postId}-0`);
   return data.publicUrl;
 }
+
+export async function getDatabaseById(id) {
+  const { data, error } = await supabase.from('post').select('*').eq('id', id);
+
+  if (error) {
+    console.error(error);
+    return -1;
+  }
+  const res = fecthPostImageUrl(id);
+  return {
+    ...data[0],
+    imgUrl: res,
+  };
+}

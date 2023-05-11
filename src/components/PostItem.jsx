@@ -1,8 +1,13 @@
 import React from 'react';
 import './PostItem.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostItem({ post }) {
   console.log(post);
+  const navigate = useNavigate();
+  const postPage = () => {
+    navigate(`/post/${post.id}`);
+  };
 
   function unpackDate(created_At) {
     const createdAt = new Date(created_At);
@@ -18,7 +23,13 @@ export default function PostItem({ post }) {
   }
 
   return (
-    <div className="item" key={`post-list-${post.id}`}>
+    <div
+      className="item"
+      key={`post-list-${post.id}`}
+      onClick={() => {
+        postPage();
+      }}
+    >
       <div className="title">{post.title}</div>
       {post.img_name ? (
         <img className="image" src={post.imgUrl} />
