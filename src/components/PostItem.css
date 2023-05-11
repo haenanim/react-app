@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: calc(25% - 20px);
   height: 300px;
-  background-color: tomato;
+  background-color: rgb(193, 222, 238);
   border-radius: 12px;
   margin: 10px;
 }

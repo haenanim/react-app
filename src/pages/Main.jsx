@@ -2,7 +2,7 @@ import './Main.css';
 import PostList from '../components/PostList';
 function Main() {
   return (
-    <div className="inner">
+    <div className="main">
       <PostList></PostList>
     </div>
   );

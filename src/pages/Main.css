@@ -1,36 +1,4 @@
-.inner {
-  background-color: rgb(255, 255, 255);
+.main {
   width: 1000px;
   margin: 0 auto;
-}
-
-.inner .header {
-  background-color: rgb(209, 209, 209);
-  display: flex;
-  justify-content: space-between;
-}
-.inner .header .left_side {
-  display: flex;
-  width: 200px;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(59, 59, 59);
-}
-.inner .header .left_side .logo {
-  font-size: 30pt;
-  color: white;
-}
-.inner .header .right_side {
-  display: flex;
-}
-.inner .header .right_side .search_box {
-  align-items: center;
-  width: 50px;
-  margin: 10px;
-  box-sizing: border-box;
-}
-.inner .header .right_side .search_box:focus {
-  width: 120px;
-}
-.inner .view {
 }

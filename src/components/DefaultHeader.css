@@ -1,0 +1,33 @@
+.header {
+  background-color: rgb(209, 209, 209);
+  display: flex;
+  justify-content: space-between;
+}
+.header .left_side {
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(59, 59, 59);
+}
+.header .left_side .logo {
+  font-size: 30pt;
+  color: white;
+}
+.header .right_side {
+  display: flex;
+}
+.header .right_side .search_box {
+  align-items: center;
+  width: 50px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+.header .right_side .search_box:focus {
+  width: 120px;
+}
+.header .right_side .posting_btn {
+  color: tomato;
+}
+.view {
+}

@@ -1,12 +1,20 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DefaultHeader from '../components/DefaultHeader';
 
 function DefaultLayout({ children }) {
   return (
-    <div className="inner">
+    <React.Fragment>
       <DefaultHeader />
-      {children}
-    </div>
+      <div
+        className="content"
+        style={{
+          width: '1000px',
+          margin: '0 auto',
+        }}
+      >
+        {children}
+      </div>
+    </React.Fragment>
   );
 }
 
