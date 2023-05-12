@@ -3,6 +3,17 @@
   flex-wrap: wrap;
   /* justify-content: space-between; */
 }
+.pages {
+  display: flex;
+  justify-content: center;
+}
+.pages .page-btn {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
+  cursor: pointer;
+}
 .postList .item {
   /* background-color: antiquewhite;
   margin: 12px;

@@ -101,3 +101,12 @@ export async function getDatabaseById(id) {
     imgUrl: res,
   };
 }
+
+export async function postCount() {
+  const { data, error } = await supabase.from('post').select('id');
+  if (error) {
+    console.log(error);
+  } else {
+    return data;
+  }
+}
