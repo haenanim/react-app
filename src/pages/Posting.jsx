@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { uploadPost, uploadStorage, updatePost } from '../core/supabaseUtils';
+import { useNavigate } from 'react-router-dom';
 
 import './Posting.css';
 
@@ -8,6 +9,10 @@ export default function Posting() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
+  const mainPageNav = () => {
+    navigate(`/`);
+  };
 
   const params = useParams();
   console.log(params);
@@ -22,6 +27,7 @@ export default function Posting() {
     data.then((promise) => {
       uploadImage(promise);
     });
+    mainPageNav();
   }
 
   function uploadImage(promise) {

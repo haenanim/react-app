@@ -5,7 +5,7 @@ import './PostList.css';
 
 export default function PostList() {
   const [list, setList] = useState([]);
-  const limit = 10;
+  const limit = 12;
   const offset = 0;
 
   async function fetchData() {

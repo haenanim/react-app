@@ -59,6 +59,7 @@ export async function fetchPost(offset, limit) {
   const { data: postItems, error } = await supabase
     .from('post')
     .select('*')
+    .order('created_at', { ascending: false })
     .range(offset, offset + limit - 1);
 
   const result = postItems.map((post) => {

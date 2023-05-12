@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { getDatabaseById } from '../core/supabaseUtils';
 import { useEffect, useState } from 'react';
+import './Post.css';
 function Post() {
   const [postData, setPostData] = useState({});
   const params = useParams();
@@ -19,7 +20,7 @@ function Post() {
   return (
     <div className="post">
       <h1>{postData.title}</h1>
-      {postData.img_name ? <img src={postData.imgUrl} /> : <div></div>}
+      {postData.img_name && <img src={postData.imgUrl} />}
       <p>{postData.content}</p>
     </div>
   );
