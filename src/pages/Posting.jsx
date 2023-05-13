@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { uploadPost, uploadStorage, updatePost } from '../core/supabaseUtils';
+import {
+  uploadPost,
+  uploadStorage,
+  updatePost,
+  getDatabaseById,
+} from '../core/supabaseUtils';
 import { useNavigate } from 'react-router-dom';
 
 import './Posting.css';
@@ -9,6 +14,7 @@ export default function Posting() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState([]);
+  const [postData, setPostData] = useState();
   const navigate = useNavigate();
   const mainPageNav = () => {
     navigate(`/`);
@@ -16,6 +22,11 @@ export default function Posting() {
 
   const params = useParams();
   console.log(params);
+
+  function fetchPost() {
+    const data = getDatabaseById(params.num);
+    return data;
+  }
 
   function handleImageChange(e) {
     const fileArray = Array.from(e.target.files);
@@ -39,6 +50,15 @@ export default function Posting() {
       });
     }
   }
+  function settingModify() {
+    // postData.then((promise) => {});
+  }
+
+  useEffect(() => {
+    setPostData(fetchPost());
+    settingModify();
+    console.log(postData);
+  }, []);
 
   return (
     <div className="view">

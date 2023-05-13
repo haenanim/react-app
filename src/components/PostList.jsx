@@ -38,9 +38,6 @@ export default function PostList() {
     }
     return arr;
   }
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   useEffect(() => {
     fetchData();
