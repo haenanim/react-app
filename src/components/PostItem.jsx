@@ -1,9 +1,8 @@
 import React from 'react';
 import './PostItem.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function PostItem({ post }) {
-  console.log(post);
   const navigate = useNavigate();
   const postPage = () => {
     navigate(`/post/${post.id}`);
