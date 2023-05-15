@@ -8,7 +8,7 @@ function Post() {
   const params = useParams();
   const navigate = useNavigate();
   const modifyPostNav = () => {
-    navigate(`/posting/${params.num}`);
+    navigate(`/posting/${params.num}`, { state: postData });
   };
   console.log('param' + params);
 

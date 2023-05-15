@@ -1,11 +1,23 @@
 import { useEffect, useState } from 'react';
 import './DefaultHeader.css';
+import { useNavigate } from 'react-router-dom';
 
 function DefaultHeader() {
+  const mainNav = useNavigate();
+  function gotoMain() {
+    mainNav(`/`);
+  }
   return (
     <div className="header">
       <div className="left_side">
-        <a className="logo">Panel</a>
+        <a
+          className="logo"
+          onClick={() => {
+            gotoMain();
+          }}
+        >
+          Panel
+        </a>
       </div>
       <div className="right_side">
         <a className="posting-btn" href="/posting">

@@ -6,7 +6,7 @@ import {
   updatePost,
   getDatabaseById,
 } from '../core/supabaseUtils';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import './Posting.css';
 
@@ -19,10 +19,15 @@ export default function Posting() {
   const mainPageNav = () => {
     navigate(`/`);
   };
+  // const { state } = useLocation();
 
+  const location = useLocation();
   const params = useParams();
   console.log(params);
 
+  useEffect(() => {
+    console.log(location);
+  }, []);
   function fetchPost() {
     const data = getDatabaseById(params.num);
     return data;
@@ -50,15 +55,6 @@ export default function Posting() {
       });
     }
   }
-  function settingModify() {
-    // postData.then((promise) => {});
-  }
-
-  useEffect(() => {
-    setPostData(fetchPost());
-    settingModify();
-    console.log(postData);
-  }, []);
 
   return (
     <div className="view">
@@ -75,6 +71,7 @@ export default function Posting() {
             onChange={(e) => {
               setTitle(e.target.value);
             }}
+            value={location.state && location.state.title}
           />
         </div>
         <div className="picture_box">
