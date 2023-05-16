@@ -27,6 +27,10 @@ export default function Posting() {
 
   useEffect(() => {
     console.log(location);
+    if (location) {
+      setTitle(location.state.title);
+      setContent(location.state.content);
+    }
   }, []);
   function fetchPost() {
     const data = getDatabaseById(params.num);
@@ -71,7 +75,7 @@ export default function Posting() {
             onChange={(e) => {
               setTitle(e.target.value);
             }}
-            value={location.state && location.state.title}
+            value={title}
           />
         </div>
         <div className="picture_box">
@@ -96,6 +100,7 @@ export default function Posting() {
           onChange={(e) => {
             setContent(e.target.value);
           }}
+          value={content}
         />
         <button
           className="complete_btn"
