@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import {
   uploadPost,
   uploadStorage,
+  updatePostImgName,
   updatePost,
   getDatabaseById,
 } from '../core/supabaseUtils';
@@ -14,7 +15,6 @@ export default function Posting() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState([]);
-  const [postData, setPostData] = useState();
   const navigate = useNavigate();
   const mainPageNav = () => {
     navigate(`/`);
@@ -32,10 +32,10 @@ export default function Posting() {
       setContent(location.state.content);
     }
   }, []);
-  function fetchPost() {
-    const data = getDatabaseById(params.num);
-    return data;
-  }
+  // function fetchPost() {
+  //   const data = getDatabaseById(params.num);
+  //   return data;
+  // }
 
   function handleImageChange(e) {
     const fileArray = Array.from(e.target.files);
@@ -55,9 +55,13 @@ export default function Posting() {
       images.map((image, index) => {
         const imageName = promise[0].id + '-' + index;
         const data = uploadStorage(imageName, image);
-        updatePost(promise[0].id, imageName);
+        updatePostImgName(promise[0].id, imageName);
       });
     }
+  }
+
+  function modifyPost() {
+    updatePost(params.num, title, content);
   }
 
   return (
@@ -105,7 +109,11 @@ export default function Posting() {
         <button
           className="complete_btn"
           onClick={() => {
-            submitPost();
+            if (params) {
+              modifyPost();
+            } else {
+              submitPost();
+            }
           }}
         >
           작성

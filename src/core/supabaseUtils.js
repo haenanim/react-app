@@ -42,10 +42,17 @@ export async function uploadPost(title, content) {
   }
 }
 
-export async function updatePost(id, imgName) {
+export async function updatePostImgName(id, imgName) {
   const { error } = await supabase
     .from('post')
     .update({ img_name: imgName })
+    .eq('id', id);
+}
+
+export async function updatePost(id, title, content) {
+  const { error } = await supabase
+    .from('post')
+    .update({ title: title, content: content })
     .eq('id', id);
 }
 
