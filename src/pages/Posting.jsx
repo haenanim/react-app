@@ -47,7 +47,6 @@ export default function Posting() {
     data.then((promise) => {
       uploadImage(promise);
     });
-    mainPageNav();
   }
 
   function uploadImage(promise) {
@@ -114,6 +113,7 @@ export default function Posting() {
             } else {
               submitPost();
             }
+            mainPageNav();
           }}
         >
           작성
