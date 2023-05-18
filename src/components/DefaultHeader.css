@@ -27,8 +27,9 @@
 .header .right_side .search_box:focus {
   width: 120px;
 }
-.header .right_side .posting_btn {
-  color: tomato;
+.header .right_side .posting-btn {
+  background-color: tomato;
+  text
 }
 .view {
 }
