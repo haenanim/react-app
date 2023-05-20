@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import { getDatabaseById } from '../core/supabaseUtils';
+import { getDatabaseById, deletePost } from '../core/supabaseUtils';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Post.css';
@@ -10,6 +10,9 @@ function Post() {
   const navigate = useNavigate();
   const modifyPostNav = () => {
     navigate(`/posting/${params.num}`, { state: postData });
+  };
+  const gotoMain = () => {
+    navigate(`/`);
   };
 
   function fetchPost() {
@@ -52,6 +55,14 @@ function Post() {
         }}
       >
         수정하기
+      </button>
+      <button
+        onClick={() => {
+          deletePost(params.num);
+          gotoMain();
+        }}
+      >
+        삭제하기
       </button>
     </div>
   );

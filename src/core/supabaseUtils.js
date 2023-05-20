@@ -85,6 +85,13 @@ export async function fetchPost(offset, limit) {
   }
 }
 
+export async function deletePost(id) {
+  const { data: postItems, error } = await supabase
+    .from('post')
+    .delete()
+    .eq('id', id);
+}
+
 /**
  *
  * @param {*} postId postId
