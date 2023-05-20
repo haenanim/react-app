@@ -31,6 +31,7 @@ export default function PostList() {
           onClick={() => {
             setOffset(i);
           }}
+          key={i}
         >
           {i + 1}
         </div>

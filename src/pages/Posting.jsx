@@ -5,7 +5,6 @@ import {
   uploadStorage,
   updatePostImgName,
   updatePost,
-  getDatabaseById,
 } from '../core/supabaseUtils';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -27,7 +26,7 @@ export default function Posting() {
 
   useEffect(() => {
     console.log(location);
-    if (location) {
+    if (params.num) {
       setTitle(location.state.title);
       setContent(location.state.content);
     }
@@ -108,7 +107,7 @@ export default function Posting() {
         <button
           className="complete_btn"
           onClick={() => {
-            if (params) {
+            if (params.num) {
               modifyPost();
             } else {
               submitPost();

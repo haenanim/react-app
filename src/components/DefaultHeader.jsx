@@ -7,22 +7,30 @@ function DefaultHeader() {
   function gotoMain() {
     mainNav(`/`);
   }
+  function gotoPosting() {
+    mainNav(`/posting`);
+  }
   return (
     <div className="header">
       <div className="left_side">
-        <a
+        <div
           className="logo"
           onClick={() => {
             gotoMain();
           }}
         >
           Panel
-        </a>
+        </div>
       </div>
       <div className="right_side">
-        <a className="posting-btn" href="/posting">
+        <div
+          className="posting-btn"
+          onClick={() => {
+            gotoPosting();
+          }}
+        >
           글쓰기
-        </a>
+        </div>
         <input className="search_box" type="text" placeholder="찾기" />
       </div>
     </div>

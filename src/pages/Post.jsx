@@ -21,9 +21,9 @@ function Post() {
       return '';
     }
     const text = [];
-    str.split('\n').map((line) => {
+    str.split('\n').map((line, idx) => {
       text.push(
-        <span>
+        <span key={idx}>
           {line}
           <br />
         </span>
