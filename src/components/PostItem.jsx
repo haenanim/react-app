@@ -17,7 +17,9 @@ export default function PostItem({ post }) {
     const minutes = createdAt.getMinutes();
     const seconds = createdAt.getSeconds();
 
-    const fromattedDate = `${year}년 ${month}월 ${date}일 ${hours}:${minutes}`;
+    const fromattedDate = `${year}년 ${
+      month + 1
+    }월 ${date}일 ${hours}:${minutes}`;
     return fromattedDate;
   }
 
