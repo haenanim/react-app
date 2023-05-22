@@ -50,6 +50,7 @@ function Post() {
       {postData.img_name && <img src={postData.imgUrl} />}
       <p>{contentData}</p>
       <button
+        className="btn"
         onClick={() => {
           modifyPostNav();
         }}
@@ -57,6 +58,7 @@ function Post() {
         수정하기
       </button>
       <button
+        className="btn"
         onClick={() => {
           deletePost(params.num);
           gotoMain();
