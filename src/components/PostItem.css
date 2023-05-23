@@ -8,6 +8,10 @@
   border-radius: 12px;
   margin: 10px;
   cursor: pointer;
+  box-sizing: border-box;
+}
+.item:hover {
+  border: solid 1px rgb(176, 176, 176);
 }
 .item .title {
   text-align: left;

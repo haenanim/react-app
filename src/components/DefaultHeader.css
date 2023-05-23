@@ -28,7 +28,9 @@
   width: 120px;
 }
 .header .right_side .posting-btn {
-  background-color: tomato;
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
 }
 .view {
 }

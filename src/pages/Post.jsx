@@ -46,9 +46,9 @@ function Post() {
   }, [postData]);
   return (
     <div className="post">
-      <h1>{postData.title}</h1>
-      {postData.img_name && <img src={postData.imgUrl} />}
-      <p>{contentData}</p>
+      <div className="title">{postData.title}</div>
+      {postData.img_name && <img className="image" src={postData.imgUrl} />}
+      <div className="content">{contentData}</div>
       <button
         className="btn"
         onClick={() => {

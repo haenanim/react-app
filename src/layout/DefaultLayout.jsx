@@ -8,8 +8,8 @@ function DefaultLayout({ children }) {
       <div
         className="content"
         style={{
-          width: '1000px',
           margin: '0 auto',
+          width: '1000px',
         }}
       >
         {children}
