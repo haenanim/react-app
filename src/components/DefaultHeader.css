@@ -28,9 +28,13 @@
   width: 120px;
 }
 .header .right_side .posting-btn {
-  text-align: center;
-  margin: auto;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+}
+.header .right_side .posting-btn:hover {
+  background-color: #424242;
+  color: white;
 }
 .view {
 }

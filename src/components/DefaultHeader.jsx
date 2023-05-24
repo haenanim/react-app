@@ -31,7 +31,7 @@ function DefaultHeader() {
         >
           글쓰기
         </div>
-        <input className="search_box" type="text" placeholder="찾기" />
+        {/* <input className="search_box" type="text" placeholder="찾기" /> */}
       </div>
     </div>
   );

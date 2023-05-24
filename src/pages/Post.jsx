@@ -49,23 +49,25 @@ function Post() {
       <div className="title">{postData.title}</div>
       {postData.img_name && <img className="image" src={postData.imgUrl} />}
       <div className="content">{contentData}</div>
-      <button
-        className="btn"
-        onClick={() => {
-          modifyPostNav();
-        }}
-      >
-        수정하기
-      </button>
-      <button
-        className="btn"
-        onClick={() => {
-          deletePost(params.num);
-          gotoMain();
-        }}
-      >
-        삭제하기
-      </button>
+      <div className="btn-set">
+        <button
+          className="btn"
+          onClick={() => {
+            modifyPostNav();
+          }}
+        >
+          수정하기
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            deletePost(params.num);
+            gotoMain();
+          }}
+        >
+          삭제하기
+        </button>
+      </div>
     </div>
   );
 }
