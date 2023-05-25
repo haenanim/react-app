@@ -27,7 +27,8 @@ export default function PostList() {
     for (let i = 0; count / limit > i; ++i) {
       arr.push(
         <div
-          className="page-btn"
+          // className="page-btn"
+          className={offset === i ? 'select-btn' : 'page-btn'}
           onClick={() => {
             setOffset(i);
           }}
