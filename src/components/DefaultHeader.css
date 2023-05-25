@@ -12,6 +12,8 @@
   cursor: pointer;
 }
 .header .left_side .logo {
+  text-align: center;
+  width: 100%;
   font-size: 30pt;
   color: white;
 }
